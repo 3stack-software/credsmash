@@ -141,7 +141,10 @@ def parse_manifest(source, format):
 def parse_config(fp):
     config = {}
     cp = configparser.RawConfigParser()
-    cp.read_file(fp)
+    if hasattr(cp, 'read_file'):
+        cp.read_file(fp)
+    else:
+        cp.readfp(fp)
     for section in cp.sections():
         config[section] = {}
         for option in cp.options(section):
