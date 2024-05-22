@@ -175,7 +175,7 @@ def _from_b64(s):  # type (str): -> bytes
 class IntegrityError(Exception):
 
     def __init__(self, value=""):
-        self.value = "INTEGRITY ERROR: " + value if value is not "" else \
+        self.value = "INTEGRITY ERROR: " + value if value != "" else \
                      "INTEGRITY ERROR"
 
     def __str__(self):

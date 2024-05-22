@@ -48,7 +48,7 @@ class KmsKeyService(object):
 class KmsError(Exception):
 
     def __init__(self, value=""):
-        self.value = "KMS ERROR: " + value if value is not "" else "KMS ERROR"
+        self.value = "KMS ERROR: " + value if value != "" else "KMS ERROR"
 
     def __str__(self):
         return self.value
