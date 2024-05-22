@@ -2,3 +2,5 @@ cryptography>=1.5
 boto3>=1.1.1
 click>=6.6
 PyYAML>=3.10
+importlib_resources>=5.12
+importlib_metadata>=7.1.0

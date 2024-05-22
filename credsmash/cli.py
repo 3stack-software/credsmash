@@ -5,11 +5,10 @@ import fnmatch
 import logging
 import operator
 import os
-import sys
 
 import boto3
 import click
-import pkg_resources
+import importlib_metadata
 import six
 
 import credsmash.api
@@ -42,8 +41,8 @@ class Environment(object):
 
     @staticmethod
     def load_entry_point(group, name):
-        entry_points = pkg_resources.iter_entry_points(
-            group, name
+        entry_points = importlib_metadata.entry_points(
+            group=group, name=name
         )
         for entry_point in entry_points:
             return entry_point.load()
@@ -396,7 +395,7 @@ def cmd_put_many(ctx, source, fmt, compare=True):
 
 
 # Load any extra CLI's
-for ep in pkg_resources.iter_entry_points('credsmash.cli'):
+for ep in importlib_metadata.entry_points(group='credsmash.cli'):
     try:
         ep.load()
     except ImportError:

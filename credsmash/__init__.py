@@ -12,6 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import importlib_resources
 
-import pkg_resources
-__version__ = pkg_resources.resource_string(__name__, 'VERSION')
+__version__ = importlib_resources.files(__name__).joinpath('VERSION').read_bytes().decode('utf-8').strip()
