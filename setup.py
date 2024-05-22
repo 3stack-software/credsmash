@@ -43,8 +43,8 @@ setup(
         'boto3',
         'click',
         'six',
-        'importlib_resources',
-        'importlib_metadata'
+        'importlib_resources>=5.12',
+        'importlib_metadata>=6.5'
     ],
     tests_require=[
         'pytest',
